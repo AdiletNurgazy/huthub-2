@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <main class="main">
+        <div id="main-content" class="container mb-10">
+            <h1 class="title">Новости Qumash</h1>
+            <p class="text">Простым языком о важных и не очень новостях KZ <br>
+                Инфу, фотки и видосы можете кидать сюда 👉 @qumash_box</p>
+            <a href="https://t.me/qumash_kz" class="primary-button">Мы в Телеграмме</a>
+        </div>
+        <div class="container">
+            <h2 class="title">Qumash News</h2>
+            {% for post in posts %}
+            <div class="card">
+                <div class="card-body">
+                    <h3>{{ post.title }}</h3>
+                    <h4>{{ post.postDate }}</h4>
+                    <p>{{ post.content }}</p>
+                    <a href="{% url 'postDetail' pk=post.pk %}" class="primary-button">Read</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}
