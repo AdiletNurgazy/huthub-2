@@ -11,7 +11,7 @@ def homePage(request):
 
 def postDetail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return renderm(request, "post-detail.html", {
+    return render(request, "post-detail.html", {
         'post': post
     })
 
